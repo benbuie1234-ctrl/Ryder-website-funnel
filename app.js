@@ -1,5 +1,16 @@
 'use strict';
 
+/* ── Prevent auto-scrolling to hash on initial load ── */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+  }
+});
+
 /* ── Copy-code buttons ── */
 var copyTimers = new WeakMap();
 var announcer = document.getElementById('copy-announce');
