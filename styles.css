@@ -404,15 +404,6 @@ h1 {
 }
 
 /* ── Comparison ── */
-.table-scroll-hint {
-  display: none;
-  font-size: 0.7rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: center;
-  margin-bottom: 14px;
-}
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -421,21 +412,6 @@ h1 {
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 4px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--red) rgba(255, 255, 255, 0.08);
-}
-.table-wrap::-webkit-scrollbar {
-  height: 6px;
-  -webkit-appearance: none;
-}
-.table-wrap::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 3px;
-  margin: 0 14px;
-}
-.table-wrap::-webkit-scrollbar-thumb {
-  background: var(--red);
-  border-radius: 3px;
 }
 table {
   width: 100%;
@@ -838,9 +814,6 @@ th:nth-child(3) {
   }
   .card-footer .btn {
     min-height: 48px;
-  }
-  .table-scroll-hint {
-    display: block;
   }
   .affiliate-grid {
     grid-template-columns: repeat(2, 1fr);
