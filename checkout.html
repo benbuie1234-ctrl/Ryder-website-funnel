@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Ryder Cragun</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+  <!-- ===== SITE HEADER ===== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html#programs" class="back-link" aria-label="Back to programs page">
+        <svg class="back-arrow-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Programs</span>
+      </a>
+
+      <a href="index.html" class="brand" aria-label="Ryder Cragun — home">RYDER CRAGUN</a>
+
+      <div class="header-end" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- ===== DEMO ALERT BANNER ===== -->
+  <div class="demo-top-banner" role="alert">
+    <svg class="demo-banner-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M9 1L17 16H1L9 1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9 7v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="9" cy="13" r="0.75" fill="currentColor"/>
+    </svg>
+    <span><strong>DEMO CHECKOUT</strong>&thinsp;—&thinsp;No payment will be processed. This is a UI demonstration only.</span>
+  </div>
+
+  <!-- ===== MAIN CHECKOUT ===== -->
+  <main class="checkout-main" id="main-content" tabindex="-1">
+    <div class="checkout-grid">
+
+      <!-- ══ LEFT: ORDER SUMMARY ══ -->
+      <section class="order-summary" aria-labelledby="summary-heading">
+
+        <h1 class="section-heading" id="summary-heading">Order Summary</h1>
+
+        <!-- Tier selector -->
+        <fieldset class="tier-fieldset" id="tier-fieldset">
+          <legend class="tier-legend">Select Program</legend>
+
+          <div class="tier-options">
+
+            <label class="tier-option" for="tier-r1">
+              <input
+                type="radio"
+                id="tier-r1"
+                name="tier"
+                value="R1"
+                class="tier-radio"
+                aria-describedby="tier-r1-desc"
+              >
+              <span class="tier-card" aria-hidden="true">
+                <span class="tier-id-badge">R1</span>
+                <span class="tier-card-body">
+                  <span class="tier-card-name">Basic</span>
+                  <span class="tier-card-price">$25</span>
+                </span>
+              </span>
+              <span class="sr-only" id="tier-r1-desc">R1 Basic — $25 one-time</span>
+            </label>
+
+            <label class="tier-option" for="tier-r2">
+              <input
+                type="radio"
+                id="tier-r2"
+                name="tier"
+                value="R2"
+                class="tier-radio"
+                aria-describedby="tier-r2-desc"
+              >
+              <span class="tier-card" aria-hidden="true">
+                <span class="tier-id-badge tier-id-badge--rec">R2</span>
+                <span class="tier-card-body">
+                  <span class="tier-card-name">
+                    Plus
+                    <span class="rec-label">Recommended</span>
+                  </span>
+                  <span class="tier-card-price">$40</span>
+                </span>
+              </span>
+              <span class="sr-only" id="tier-r2-desc">R2 Plus, recommended — $40 one-time</span>
+            </label>
+
+            <label class="tier-option" for="tier-r3">
+              <input
+                type="radio"
+                id="tier-r3"
+                name="tier"
+                value="R3"
+                class="tier-radio"
+                aria-describedby="tier-r3-desc"
+              >
+              <span class="tier-card" aria-hidden="true">
+                <span class="tier-id-badge tier-id-badge--apex">R3</span>
+                <span class="tier-card-body">
+                  <span class="tier-card-name">Apex</span>
+                  <span class="tier-card-price">$100</span>
+                </span>
+              </span>
+              <span class="sr-only" id="tier-r3-desc">R3 Apex — $100 one-time</span>
+            </label>
+
+          </div>
+        </fieldset>
+
+        <!-- Selected tier detail panel -->
+        <div
+          class="tier-detail-panel"
+          id="tier-detail-panel"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Price breakdown -->
+        <div class="price-breakdown" role="region" aria-label="Price breakdown">
+          <div class="price-row">
+            <span class="price-row-label" id="price-program-label">Program</span>
+            <span
+              class="price-row-value"
+              id="price-subtotal"
+              aria-live="polite"
+              aria-atomic="true"
+              aria-labelledby="price-program-label"
+            >—</span>
+          </div>
+          <div class="price-divider" aria-hidden="true"></div>
+          <div class="price-row price-row--total">
+            <span class="price-row-label">Total due today</span>
+            <span
+              class="price-row-value price-total"
+              id="price-total"
+              aria-live="polite"
+              aria-atomic="true"
+              aria-label="Total due today"
+            >—</span>
+          </div>
+          <p class="price-policy">One-time payment &nbsp;·&nbsp; All sales final</p>
+        </div>
+
+      </section>
+
+      <!-- ══ RIGHT: PAYMENT DEMO ══ -->
+      <section class="payment-section" aria-labelledby="payment-heading">
+
+        <div class="payment-heading-row">
+          <h2 class="section-heading" id="payment-heading">Payment</h2>
+          <span class="demo-pill" aria-label="Demo only — not functional">DEMO</span>
+        </div>
+
+        <!-- Demo notice -->
+        <div class="demo-notice" role="note" aria-label="Demo notice">
+          <p>
+            <strong>No real payment will be taken.</strong> The customer and card details
+            below are fixed demo placeholders — they are display-only and cannot be edited.
+            This interface demonstrates the checkout flow only.
+          </p>
+        </div>
+
+        <!-- Demo customer (display only, not a form) -->
+        <div class="demo-block" aria-label="Demo customer information">
+          <h3 class="demo-block-label">Customer</h3>
+          <div class="demo-fields">
+            <div class="demo-field">
+              <span class="demo-field-key">Name</span>
+              <span class="demo-field-val">Alex Demo</span>
+            </div>
+            <div class="demo-field">
+              <span class="demo-field-key">Email</span>
+              <span class="demo-field-val">alex&#64;demo.example</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo card visual + fields -->
+        <div class="demo-block" aria-label="Demo card information">
+          <h3 class="demo-block-label">Card</h3>
+
+          <div class="demo-card-visual" aria-hidden="true" role="presentation">
+            <div class="dcv-top">
+              <div class="dcv-chip"></div>
+              <span class="dcv-demo-flag">DEMO</span>
+            </div>
+            <div class="dcv-number">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4242</div>
+            <div class="dcv-bottom">
+              <span class="dcv-name">ALEX DEMO</span>
+              <span class="dcv-expiry-group">
+                <span class="dcv-expiry-label">EXPIRES</span>
+                <span class="dcv-expiry">12&nbsp;/&nbsp;99</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="demo-fields">
+            <div class="demo-field demo-field--full">
+              <span class="demo-field-key">Card number</span>
+              <span class="demo-field-val demo-field-val--masked">
+                <span class="masked-dots" aria-hidden="true">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;</span>
+                <span class="masked-last4">4242</span>
+              </span>
+            </div>
+            <div class="demo-field demo-field--half">
+              <span class="demo-field-key">Expires</span>
+              <span class="demo-field-val">12 / 99</span>
+            </div>
+            <div class="demo-field demo-field--half">
+              <span class="demo-field-key">CVC</span>
+              <span class="demo-field-val">
+                <span aria-label="three dots, hidden">
+                  <span aria-hidden="true">&bull;&bull;&bull;</span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- R3 duration notice (shown/hidden by JS) -->
+        <div
+          class="apex-notice"
+          id="apex-notice"
+          role="note"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+        >
+          <svg class="apex-notice-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M8 5v3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="8" cy="11" r="0.6" fill="currentColor"/>
+          </svg>
+          <p>
+            <strong>Apex coaching duration is unspecified.</strong> Confirm details directly with Ryder before any real purchase. This demo simulation does not commit to any coaching term or schedule.
+          </p>
+        </div>
+
+        <!-- Simulate button -->
+        <button
+          type="button"
+          class="simulate-btn"
+          id="simulate-btn"
+          aria-describedby="simulate-hint"
+        >
+          <span class="simulate-btn-text" id="simulate-btn-text">Simulate Purchase</span>
+          <svg class="simulate-btn-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="simulate-hint" id="simulate-hint">
+          Clicking demonstrates the confirmation flow. No charge will occur.
+        </p>
+
+        <!-- ARIA status region -->
+        <div
+          class="sr-status"
+          id="status-region"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== CONFIRMATION OVERLAY ===== -->
+  <div
+    class="overlay"
+    id="overlay"
+    hidden
+    aria-hidden="true"
+  >
+    <div
+      class="confirm-dialog"
+      id="confirm-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirm-heading"
+      tabindex="-1"
+    >
+      <!-- Demo stamp -->
+      <div class="confirm-demo-stamp" aria-hidden="true">
+        DEMO &nbsp;·&nbsp; NO REAL TRANSACTION
+      </div>
+
+      <!-- Check icon -->
+      <div class="confirm-check-ring" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M8 16.5l5.5 5.5 10-11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h2 class="confirm-heading" id="confirm-heading">Demo Purchase Simulated</h2>
+
+      <!-- Confirm summary (populated by JS) -->
+      <div
+        class="confirm-summary"
+        id="confirm-summary"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="confirm-disclaimer" role="note">
+        <p>
+          This is a <strong>demonstration only</strong>. No payment has been processed,
+          no charge has occurred, and no order has been placed. No receipt or product
+          delivery is associated with this simulation.
+        </p>
+      </div>
+
+      <!-- Actions -->
+      <div class="confirm-actions">
+        <a
+          href="index.html#programs"
+          class="confirm-btn confirm-btn--secondary"
+          id="confirm-back-btn"
+        >
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 11.5L4.5 7 9 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to Programs
+        </a>
+        <button
+          type="button"
+          class="confirm-btn confirm-btn--primary"
+          id="try-another-btn"
+        >
+          Try Another Tier
+        </button>
+      </div>
+
+      <!-- Close button -->
+      <button
+        type="button"
+        class="overlay-close"
+        id="overlay-close-btn"
+        aria-label="Close confirmation and return to checkout"
+      >
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
+</body>
+</html>
