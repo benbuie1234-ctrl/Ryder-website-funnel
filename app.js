@@ -109,3 +109,20 @@ document.querySelectorAll('.faq-item summary').forEach(function (summary) {
     }
   });
 });
+
+/* ── Show mobile sticky CTA bar only when hero CTA is out of view ── */
+var heroCta = document.querySelector('.hero-cta');
+var mobileCtaBar = document.querySelector('.mobile-cta-bar');
+
+if (heroCta && mobileCtaBar && 'IntersectionObserver' in window) {
+  var ctaObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        mobileCtaBar.classList.remove('is-visible');
+      } else {
+        mobileCtaBar.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  ctaObserver.observe(heroCta);
+}

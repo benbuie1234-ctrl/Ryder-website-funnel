@@ -824,7 +824,7 @@ th:nth-child(3) {
     padding: 22px 14px;
   }
 
-  /* Fixed mobile CTA bar */
+  /* Fixed mobile CTA bar (hidden on hero, appears on scroll) */
   .mobile-cta-bar {
     display: flex;
     flex-direction: column;
@@ -841,6 +841,15 @@ th:nth-child(3) {
     border-top: 1px solid var(--rule);
     padding: 10px 20px calc(10px + env(safe-area-inset-bottom, 0px));
     box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .mobile-cta-bar.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
   .mobile-cta-btn {
     width: 100%;
