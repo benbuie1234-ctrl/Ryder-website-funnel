@@ -256,6 +256,14 @@ h1 {
   margin-bottom: 48px;
   text-align: center;
 }
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 560px;
+  margin: -32px auto 44px;
+  text-align: center;
+  line-height: 1.6;
+}
 
 /* ── Programs ── */
 .cards {
@@ -511,9 +519,25 @@ th:nth-child(3) {
   padding: 4px;
 }
 .aff-name {
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.4px;
+  color: var(--text);
+  margin-top: 4px;
+}
+.aff-role {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--red-label);
+  font-weight: 700;
+  margin-top: -6px;
+}
+.aff-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 2px;
 }
 .code-row {
   display: flex;
